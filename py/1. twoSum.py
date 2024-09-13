@@ -1,13 +1,17 @@
 from typing import List
+    """
+    two_sum problem
+    """
 
-
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        s = {}
-        for i,v in enumerate(nums):
-            diff = target - v
-            if diff in s:
-                return [s[diff], i]
-            s[v] = i
-        return []
+def two_sum(nums: List[int], target: int) -> List[int]:
+    """
+    two_sum solution
+    """
+    s = {}
+    for i,v in enumerate(nums):
+        diff = target - v
+        if diff in s:
+            return [s[diff], i]
+        s[v] = i
+    return []
 
