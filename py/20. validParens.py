@@ -1,21 +1,10 @@
 def is_valid(s: str) -> bool:
-		choices = {
-				"{":"}",
-				"(":")",
-				"[":"]"
-		}
-		o = []
-		for (idx, val) in enumerate(s):
-			if o:
-				li = o[-1]
-				if li in choices and choices[li] == val:
-					o.pop()
-				else:
-					o.append(val)
-			else:
-				o.append(val)
-
-
-		return len(o) == 0
-        
+        choices = {"{": "}", "[":"]", "(":")"}
+        stack = []
+        for char in s:
+            if stack and stack[-1] in choices and choices[stack[-1]] == char:
+                stack.pop()
+            else:
+                stack.append(char)
+        return not stack    
 
