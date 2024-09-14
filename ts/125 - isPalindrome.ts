@@ -1,23 +1,15 @@
-import re
+function isPalindrome(s: string): boolean {
+  const c = s.toLowerCase().replace(/\W+|_/g, '')
+  let l = 0;
+  let r = c.length - 1;
+  while (l < ){
+    let lc = c[l];
+    let rc = c[r];
 
-def isPalindrome(s: str) -> bool:
-        if len(s) == 1:
-            return True
-        c = re.sub(r'\W+|_', '', s.lower())
+    if (lc != rc) return false;
+    l++;
+    r--;
+  }
 
-        print('c',c)
-
-        l = 0
-        r = len(c) - 1
-
-        while l < r:
-            lc = c[l]
-            rc = c[r]
-
-            if (lc != rc):
-              return False
-            l+=1
-            r-=1
-        return True
-
-print(isPalindrome('ab_a'))
+  return true;
+};
