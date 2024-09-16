@@ -15,10 +15,10 @@ def travel(image: List[List[int]], sr:int, sc:int, color:int, val:int):
     image[sr][sc] = color
     
     dirs = [
-        [0,1], #down
+        [0,1],  #down
         [0,-1], #up
-        [1,0], #right
-        [-1,0] #left
+        [1,0],  #right
+        [-1,0]  #left
     ]
 
     for x,y in dirs:
