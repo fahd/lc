@@ -13,3 +13,4 @@ class Solution:
                 if len(o) == 0:
                     return True
         return len(o) == 0
+        
