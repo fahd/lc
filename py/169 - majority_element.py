@@ -1,24 +1,12 @@
-import math
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        limit = math.floor(len(nums) / 2)
-        nums.sort()
-        curr = nums[0]
-        c = 1
-        maj = None
+        candidate = None
+        c = 0
 
-        if c > limit:
-            return curr
-        
-        # [2,3,3]
-        #    ^
-        for i in range(1,len(nums)):
+        for i in range(0, len(nums)):
             v = nums[i]
-            if curr != v:
-                c = 0
-                curr = v
-            c += 1
-            if c > limit:
-                maj = curr
-            
-        return maj
+            if c == 0:
+                candidate = v
+            c += 1 if candidate == v else -1
+        
+        return candidate
