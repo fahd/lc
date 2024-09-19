@@ -5,22 +5,25 @@
 #         self.left = left
 #         self.right = right
 
-def traverse(root: Optional[TreeNode], o) -> int:
-    if not root:
-        return 0
-    
-    lh = traverse(root.left, o)
-    rh = traverse(root.right, o)
-
-    o["md"] = max(o["md"], lh + rh)
-
-    return 1 + max(lh,rh)
 
 
 class Solution:
+    def __init__(self):
+        self.max_diameter = 0
+
+    def traverse(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        
+        lh = self.traverse(root.left)
+        rh = self.traverse(root.right)
+
+        self.max_diameter = max(self.max_diameter, lh + rh)
+
+        return 1 + max(lh,rh)
+
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        o = {"md": 0}
-        traverse(root, o)
-        return o["md"]
+        self.traverse(root)
+        return self.max_diameter
 
         
